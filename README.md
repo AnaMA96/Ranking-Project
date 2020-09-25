@@ -9,7 +9,7 @@ De esta API he obtenido una lista de pull requests a través de la cual he ido c
 el número de PR abiertas, el número de PR cerradas, el porcentaje de PR completadas (cerradas vs abiertas), el número de PR que faltan por estudiante, la lista de memes únicos usada por cada lab y las horas transcurridas entre el cierre de la PR y el último commit del usuario que la realiza. 
 
 Además, parte de la información obtenida con la API de Github ha sido completada con información extraída mediante web scraping de la propia página del repositorio de Github. Los json formados con dicha información han sido exportados a MongoDB en forma de cuatro colecciones: Labs, Pulls, Users y memes_lst_per_user.
-Las colecciones siguen la siguiente estructura (ejemplos): \
+Las colecciones siguen la siguiente estructura (ejemplos):\
 
 **Pulls**:
 _id:5f6ce3c414e6dc0539ae6224\
@@ -19,7 +19,7 @@ created_at:"2020-09-21T16:45:52Z"\
 closed_at:"2020-09-23T23:38:01Z"\
 last_commit_time:"2020-09-21T16:17:14Z"\
 instructor_grade_time:55.34638888888889\
-memes_lst: \
+memes_lst:\
 0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."\
 1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."\
 state:"closed"\
