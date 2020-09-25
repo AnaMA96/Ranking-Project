@@ -12,39 +12,39 @@ Además, parte de la información obtenida con la API de Github ha sido completa
 Las colecciones siguen la siguiente estructura (ejemplos):\
 
 
-**Pulls**:
-_id:5f6ce3c414e6dc0539ae6224
-users: 
-0:"Diegon8"
-created_at:"2020-09-21T16:45:52Z"
-closed_at:"2020-09-23T23:38:01Z"
-last_commit_time:"2020-09-21T16:17:14Z"
-instructor_grade_time:55.34638888888889
-memes_lst:
-0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
-1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."
-state:"closed"
+**Pulls**:\
+_id:5f6ce3c414e6dc0539ae6224\
+users:\
+0:"Diegon8"\
+created_at:"2020-09-21T16:45:52Z"\
+closed_at:"2020-09-23T23:38:01Z"\
+last_commit_time:"2020-09-21T16:17:14Z"\
+instructor_grade_time:55.34638888888889\
+memes_lst:\
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."\
+1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."\
+state:"closed"\
 pull_id:"490428782"
 
-**Lab**:
-_id: ObjectId("5f6ce39514e6dc0539ae61fc")
-lab_id:"lab-code-simplicity-efficiency"
-pulls_list:
-0:"490428782"
+**Lab**:\
+_id: ObjectId("5f6ce39514e6dc0539ae61fc")\
+lab_id:"lab-code-simplicity-efficiency"\
+pulls_list:\
+0:"490428782"\
 1:"488491610"
 
-**Users**:
-_id:OBjectId("5f6ce44514e6dc0539ae6445")
-name:Diegon8
-labs: 
-0:"lab-code-simplicity-efficiency"
+**Users**:\
+_id:OBjectId("5f6ce44514e6dc0539ae6445"\
+name:Diegon8\
+labs:\
+0:"lab-code-simplicity-efficiency"\
 1:"lab-tableau-data-visualization"
 
-**memes_lst_per_user**:
-_id:ObjectId("5f6ce45214e6dc0539ae6460")
-name:"Diegon8"
-memes_list:
-0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
+**memes_lst_per_user**:\
+_id:ObjectId("5f6ce45214e6dc0539ae6460")\
+name:"Diegon8"\
+memes_list:\
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."\
 1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."
 
 
