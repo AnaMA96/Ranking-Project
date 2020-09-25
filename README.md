@@ -9,6 +9,43 @@ De esta API he obtenido una lista de pull requests a través de la cual he ido c
 el número de PR abiertas, el número de PR cerradas, el porcentaje de PR completadas (cerradas vs abiertas), el número de PR que faltan por estudiante, la lista de memes únicos usada por cada lab y las horas transcurridas entre el cierre de la PR y el último commit del usuario que la realiza. 
 
 Además, parte de la información obtenida con la API de Github ha sido completada con información extraída mediante web scraping de la propia página del repositorio de Github. Los json formados con dicha información han sido exportados a MongoDB en forma de cuatro colecciones: Labs, Pulls, Users y memes_lst_per_user.
+Las colecciones siguen la siguiente estructura (ejemplos): 
+**Pulls**:
+_id:5f6ce3c414e6dc0539ae6224
+users: 
+0:"Diegon8"
+created_at:"2020-09-21T16:45:52Z"
+closed_at:"2020-09-23T23:38:01Z"
+last_commit_time:"2020-09-21T16:17:14Z"
+instructor_grade_time:55.34638888888889
+memes_lst: 
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
+1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."
+state:"closed"
+pull_id:"490428782"
+
+**Lab**:
+_id: ObjectId("5f6ce39514e6dc0539ae61fc")
+lab_id:"lab-code-simplicity-efficiency"
+pulls_list:
+0:"490428782"
+1:"488491610"
+
+**Users**:
+_id:OBjectId("5f6ce44514e6dc0539ae6445")
+name:Diegon8
+labs: 
+0:"lab-code-simplicity-efficiency"
+1:"lab-tableau-data-visualization"
+
+**memes_lst_per_user**:
+_id:ObjectId("5f6ce45214e6dc0539ae6460")
+name:"Diegon8"
+memes_list:
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
+1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."
+
+
 
 Posteriormente, he creado una API usando **Flask**, con una serie de 'endpoints' que vamos a analizar a continuación y que nos permiten llegar al análisis mencionado anteriormente.
 
@@ -31,8 +68,8 @@ Ejemplo:
 Ejemplo: 
 http://localhost:3456/lab/lab-code-simplicity-efficiency/search
 
-Devuelve: 
- {"lab_id:": "lab-code-simplicity-efficiency", "open_pr_number": 0, "closed_pr_number": 22, "pr_completed_per": 100.0, "unique_memes_list": (la lista de las url de los memes únicos por lab), "user_missing_pr_list": ["FDELTA", "CarlosSanzDGP", "Marta"]}
+  Devuelve: 
+  {"lab_id:": "lab-code-simplicity-efficiency", "open_pr_number": 0, "closed_pr_number": 22 "pr_completed_per": 100.0, "unique_memes_list": (la lista de las url de los memes únicos por lab), "user_missing_pr_list": ["FDELTA", "CarlosSanzDGP", "Marta"]}
  
 5. **(GET) /lab/memeranking** : El propósito de este endpoint es obtener la lista de los memes más utilizados del repositorio, por cada lab.
 Ejemplo: http://localhost:3456/lab/memeranking
