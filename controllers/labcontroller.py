@@ -1,47 +1,12 @@
-import os
-from dotenv import load_dotenv
-load_dotenv()
 import requests
-from flask import Flask
 from flask import request, Response
 import re
-from database import db
-#import src.data_exportation as export
+from config.database import db
 import json
 from bson.json_util import dumps
 import random
+from app import app
 
-
-app = Flask("PullRequest")
-
-#(GET) /student/all
-
-#Purpose: List all students in database
-#Returns: An array of student objects
-
-@app.route("/student/all")
-def allStudents():
-    cursor=db.Users.find({}, {'_id': False, 'labs': False})
-
-    data = dumps(cursor)
-    resp = Response(data, status=200, mimetype='application/json')
-    return resp
-
-
-
-@app.route("/student/create/")
-@app.route("/student/create/<studentname>")
-def createStudent(studentname=None):
-    '''
-    Create student if it wasn't in database and returns it
-    '''
-    query = {"name": studentname}
-    if db.Users.find_one(query):
-        data = dumps({"Error": "El usuario ya existe"})
-        return Response(data, status=409, mimetype='application/json')
-
-    data = dumps(db.Users.insert_one({"name": studentname, "labs": []}).inserted_id)
-    return Response(data, status=200, mimetype='application/json')
 
 @app.route("/lab/create", methods=['POST'])
 def createLab():
@@ -57,10 +22,6 @@ def createLab():
     data = dumps(db.Labs.insert_one({"lab_id": lab_prefix, "pulls_list": []}).inserted_id)
     return Response(data, status=200, mimetype='application/json')
 
-'''(GET) /lab/<lab_id>/search
-Purpose: Search student submissions on specific lab
-Params: user_id
-Returns: See Lab analysis section'''
 
 @app.route("/lab/<lab_id>/search")
 def searchLab(lab_id):
@@ -123,6 +84,10 @@ def randomMeme(lab_id):
     return Response(status=404, mimetype='application/json')
 
 def memeRankingList(memes_list):
+    '''
+        Devuelve una lista donde cada elemento es un json con el meme y las veces que aparece el meme
+        Como parámetro  recibe la lista de memes "memes_list". Vamos a llamar a esta función por cada lab.
+    '''
     memes_set = set()
     for meme in memes_list:
         memes_set.add(meme)
@@ -140,7 +105,11 @@ def memeRankingList(memes_list):
 
     return meme_ranking_list
 
+
 def searchPullRequests(pullRequestIdList):
+    '''
+        Devuelve una lista con el id de las pull requests
+    '''
     pullRequestList = []
 
     for pullId in pullRequestIdList:
@@ -151,6 +120,9 @@ def searchPullRequests(pullRequestIdList):
     return pullRequestList
 
 def openPullRequestNumber(pullRequestList):
+    '''
+        Devuelve el número de pull requests abiertas
+    '''
     counter = 0
     for pullRequest in pullRequestList:
         if pullRequest["state"] == "open":
@@ -158,6 +130,10 @@ def openPullRequestNumber(pullRequestList):
     return counter
 
 def closedPullRequestNumber(pullRequestList):
+    '''
+        Devuelve el número de pull requests abiertas
+
+    '''
     counter = 0
     for pullRequest in pullRequestList:
         if pullRequest["state"] == "closed":
@@ -165,21 +141,33 @@ def closedPullRequestNumber(pullRequestList):
     return counter
 
 def joinMemesLists(pullRequestList):
+    '''
+    Devuelve una lista con todos los memes por cada pull request
+    '''
     memesList = []
     for pullRequest in pullRequestList:
         memesList += pullRequest["memes_lst"]
     return memesList
 
 def listToUnique(elements_list):
+    '''
+
+    '''
     set_converted = set()
     for element in elements_list:
         set_converted.add(element)
     return list(set_converted)
 
 def usersList():
+    '''
+        Devuelve la lista de users
+    '''
     return db.Users.find({}, {'_id': False})
 
 def usersMissingPrForLab(lab):
+    '''
+    Devuelve una lista de los labs que faltan a cada usuario
+    '''
     user_missed_list = []
 
     for user in usersList():
