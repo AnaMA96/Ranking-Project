@@ -13,26 +13,17 @@ Las colecciones siguen la siguiente estructura (ejemplos):\
 
 
 **Pulls**:
-_id:5f6ce3c414e6dc0539ae6224\
-
-users: \
-
-0:"Diegon8"\
-
-created_at:"2020-09-21T16:45:52Z"\
-
-closed_at:"2020-09-23T23:38:01Z"\
-
-last_commit_time:"2020-09-21T16:17:14Z"\
-
-instructor_grade_time:55.34638888888889\
-
-memes_lst:\
-
-0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."\
-
-1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."\
-state:"closed"\
+_id:5f6ce3c414e6dc0539ae6224
+users: 
+0:"Diegon8"
+created_at:"2020-09-21T16:45:52Z"
+closed_at:"2020-09-23T23:38:01Z"
+last_commit_time:"2020-09-21T16:17:14Z"
+instructor_grade_time:55.34638888888889
+memes_lst:
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
+1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."
+state:"closed"
 pull_id:"490428782"
 
 **Lab**:
