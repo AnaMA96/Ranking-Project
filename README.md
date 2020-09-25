@@ -21,8 +21,8 @@ closed_at:"2020-09-23T23:38:01Z"\
 last_commit_time:"2020-09-21T16:17:14Z"\
 instructor_grade_time:55.34638888888889\
 memes_lst:\
-0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."\
-1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."\
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
+
 state:"closed"\
 pull_id:"490428782"
 
@@ -44,8 +44,7 @@ labs:\
 _id:ObjectId("5f6ce45214e6dc0539ae6460")\
 name:"Diegon8"\
 memes_list:\
-0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."\
-1:"https://user-images.githubusercontent.com/57899051/94084735-8bfb9100-f..."
+0:"https://user-images.githubusercontent.com/68472164/93796393-12fc0e00-f..."
 
 
 
