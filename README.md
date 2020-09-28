@@ -50,7 +50,14 @@ memes_list:\
 
 Posteriormente, he creado una API usando **Flask**, con una serie de 'endpoints' que vamos a analizar a continuación y que nos permiten llegar al análisis mencionado anteriormente.
 
-## Los 'endpoints' creados han sido los siguientes:
+### Esta API ha sido desplegada en Heroku, y se puede encontrar en el siguiente enlace: 
+https://the-ranking-project.herokuapp.com/student/all , aunque también puede correr en local mediante un contenedor docker conectado a Atlas.
+
+La información se obtiene introduciendo la url de la API junto con alguno de los endpoints explicados posteriormente, del siguiente modo:
+https://helptheinstructors.herokuapp.com/<endpoint>
+
+
+## Los 'endpoints' creados son:
 
 1. **(GET) /student/create/<studentname>** : El propósito es crear un estudiante nuevo y guardarlo en MongoDB. Si intentas meter uno ya existente, no te deja introducirlo.
  Ejemplo: 
@@ -61,25 +68,18 @@ Posteriormente, he creado una API usando **Flask**, con una serie de 'endpoints'
 2. **(GET) /student/all** : El propósito es listar todos los estudiantes existentes en la base de datos. Crea un array con los users de los estudiantes.
 
 Ejemplo: 
-  http://localhost:3456/student/all
+  http://localhost:3456/student/all  para correr en local o 
+  https://helptheinstructors.herokuapp.com/student/all para llamar a la API desplegada.
   
 3. **(POST) /lab/create** : El propósito de este endpoint es crear un lab para ser analizado. Los parámetros son el prefijo del lab (entendiendo como prefijo el nombre del mismo). Sigue la misma dinámica que el primer endpoint.
 
-4. **(GET) /lab/<lab_id>/search** : El propósito de este endpoint es buscar la información de un lab concreto como muestro a continuación:
-Ejemplo: 
-http://localhost:3456/lab/lab-code-simplicity-efficiency/search
-
-  Devuelve: 
-  {"lab_id:": "lab-code-simplicity-efficiency", "open_pr_number": 0, "closed_pr_number": 22 "pr_completed_per": 100.0, "unique_memes_list": (la lista de las url de los memes únicos por lab), "user_missing_pr_list": ["FDELTA", "CarlosSanzDGP", "Marta"]}
+4. **(GET) /lab/<lab_id>/search** : El propósito de este endpoint es buscar la información de un lab concreto como muestro a continuación:\
+{"lab_id:": "lab-code-simplicity-efficiency", "open_pr_number": 0, "closed_pr_number": 22 "pr_completed_per": 100.0, "unique_memes_list": (la lista de las url de los memes únicos por lab), "user_missing_pr_list": ["FDELTA", "CarlosSanzDGP", "Marta"]}
  
-5. **(GET) /lab/memeranking** : El propósito de este endpoint es obtener la lista de los memes más utilizados del repositorio, por cada lab.
-Ejemplo: http://localhost:3456/lab/memeranking
+5. **(GET) /lab/memeranking** : El propósito de este endpoint es obtener la lista de los memes más utilizados del repositorio, por cada lab.\
 Devuelve:el lab id, la lista de las pull requests hechas a ese lab y la lista con los memes.
 
-6. **(GET) /lab/<lab_id>/meme** : El propósito de este endpoint es obtener un meme random extraído de los usados para cada lab.
-Ejemplo: 
-http://localhost:3456/lab/lab-code-simplicity-efficiency/meme
+6. **(GET) /lab/<lab_id>/meme** : El propósito de este endpoint es obtener un meme random extraído de los usados para cada lab.\
 Devuelve:
 "https://user-images.githubusercontent.com/52798316/93581456-7b2fc300-f9a1-11ea-89d2-a953d5c73e88.png"
 
-Este proyecto está diseñado para funcionar desde la terminal.
