@@ -50,8 +50,8 @@ memes_list:\
 
 Posteriormente, he creado una API usando **Flask**, con una serie de 'endpoints' que vamos a analizar a continuación y que nos permiten llegar al análisis mencionado anteriormente.
 
-### Esta API ha sido desplegada en Heroku, y se puede encontrar en el siguiente enlace: 
-https://the-ranking-project.herokuapp.com/student/all , aunque también puede correr en local mediante un contenedor docker conectado a Atlas.
+### Esta API ha sido desplegada en Heroku,
+ aunque también puede correr en local mediante un contenedor docker conectado a Atlas.
 
 La información se obtiene introduciendo la url de la API junto con alguno de los endpoints explicados posteriormente, del siguiente modo:
 https://helptheinstructors.herokuapp.com/<endpoint>
