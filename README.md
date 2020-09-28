@@ -54,7 +54,7 @@ Posteriormente, he creado una API usando **Flask**, con una serie de 'endpoints'
  aunque también puede correr en local mediante un contenedor docker conectado a Atlas.
 
 La información se obtiene introduciendo la url de la API junto con alguno de los endpoints explicados posteriormente, del siguiente modo:
-https://helptheinstructors.herokuapp.com/<endpoint>
+https://helptheinstructors.herokuapp.com/< endpoint>
 
 
 ## Los 'endpoints' creados son:
@@ -65,8 +65,7 @@ https://helptheinstructors.herokuapp.com/<endpoint>
   Si no hay ninguna estudiante con ese nombre te añade el nombre de Marta a la lista, pero, en caso de existir saltaría el siguiente error:
   {"Error": "El usuario ya existe"}
  
-2. **(GET) /student/all** : El propósito es listar todos los estudiantes existentes en la base de datos. Crea un array con los users de los estudiantes.
-
+2. **(GET) /student/all** : El propósito es listar todos los estudiantes existentes en la base de datos. Crea un array con los users de los estudiantes.\
 Ejemplo: 
   http://localhost:3456/student/all  para correr en local o 
   https://helptheinstructors.herokuapp.com/student/all para llamar a la API desplegada.
